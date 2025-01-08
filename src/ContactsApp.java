@@ -15,15 +15,6 @@ import java.io.IOException;
 public class ContactsApp {
 
     /**
-     * Used for exit where user input is integer.
-     */
-    public static final int COMMAND_EXIT = -1;
-    /**
-     * Used for opening help where user input is integer.
-     */
-    public static final int COMMAND_HELP = -2;
-
-    /**
      * Initializez the file to be modified and opens the commands menu.
      *
      * @param args Not in use.
@@ -73,6 +64,7 @@ public class ContactsApp {
         Console c = System.console();
 
         while (true) {
+            System.out.println();
             System.out.println("## Main menu ##");
             System.out.println("Command options: .help .readAll .readLine .create .update"
                     + " .delete .exit");

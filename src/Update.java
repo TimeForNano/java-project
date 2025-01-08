@@ -14,43 +14,6 @@ import java.util.Arrays;
 public class Update {
 
     /**
-     * Used as an index number for 0.
-     */
-    public static final int INDEX_0 = 0;
-    /**
-     * Used as an index number for 1.
-     */
-    public static final int INDEX_1 = 1;
-    /**
-     * Used as an index number for 2.
-     */
-    public static final int INDEX_2 = 2;
-    /**
-     * Used as an index number for 3.
-     */
-    public static final int INDEX_3 = 3;
-    /**
-     * Used as an index number for 4.
-     */
-    public static final int INDEX_4 = 4;
-    /**
-     * Used as an index number for 5.
-     */
-    public static final int INDEX_5 = 5;
-    /**
-     * Used as an index number for 6.
-     */
-    public static final int INDEX_6 = 6;
-    /**
-     * Used as an index number for 7.
-     */
-    public static final int INDEX_7 = 7;
-    /**
-     * Used as an index number for 8.
-     */
-    public static final int INDEX_8 = 8;
-
-    /**
      * User is prompted to give a line number that they want to update. Line
      * number is first validated to be 0 or higher and found in the text file.
      * If valid. Method <code>updateMenu</code> is started.
@@ -64,12 +27,12 @@ public class Update {
             System.out.println("What line number you want to update?");
             try {
                 lineToUpdate = Integer.parseInt(c.readLine());
-                if (lineToUpdate == ContactsApp.COMMAND_EXIT) {
-                    break;
-                } else if (lineToUpdate == ContactsApp.COMMAND_HELP) {
+                if (lineToUpdate == Constants.COMMAND_EXIT) {
+                    return;
+                } else if (lineToUpdate == Constants.COMMAND_HELP) {
                     Help.updateHelp();
-                } else if (lineToUpdate < 0) {
-                    System.out.println("Number needs to be 0 or higher.");
+                } else if (lineToUpdate < Constants.INDEX_1) {
+                    System.out.println("Number needs to be 1 or higher.");
                 } else {
                     break;
                 }
@@ -82,7 +45,7 @@ public class Update {
         System.out.print("Current line: ");
         try {
             try (BufferedReader readerLine = new BufferedReader(new FileReader("Contacts.csv"))) {
-                int currentLineIndex = 0;
+                int currentLineIndex = Constants.INDEX_0;
                 boolean lineFound = false;
                 while ((currentLine = readerLine.readLine()) != null) {
                     if (currentLineIndex == lineToUpdate) {
@@ -129,73 +92,73 @@ public class Update {
 
             switch (commandInput) {
                 case "1" -> {
-                    System.out.println("Current Personal ID: " + currentUpdate.get(INDEX_0));
+                    System.out.println("Current Personal ID: " + currentUpdate.get(Constants.INDEX_0));
                     System.out.println("Enter New Personal ID");
                     String validatePersonalID = c.readLine();
-                    String isValidPersonalID = Validate.PersonalID(validatePersonalID);
-                    currentUpdate.set(INDEX_0, isValidPersonalID);
+                    String isValidPersonalID = Validate.personalID(validatePersonalID);
+                    currentUpdate.set(Constants.INDEX_0, isValidPersonalID);
                 }
                 case "2" -> {
-                    System.out.println("Current First Name: " + currentUpdate.get(INDEX_1));
+                    System.out.println("Current First Name: " + currentUpdate.get(Constants.INDEX_1));
                     System.out.println("Enter New First Name");
                     String validateFirstName = c.readLine();
-                    String isValidFirstName = Validate.FirstName(validateFirstName);
-                    currentUpdate.set(INDEX_1, isValidFirstName);
+                    String isValidFirstName = Validate.firstName(validateFirstName);
+                    currentUpdate.set(Constants.INDEX_1, isValidFirstName);
                 }
                 case "3" -> {
-                    System.out.println("Current Last Name: " + currentUpdate.get(INDEX_2));
+                    System.out.println("Current Last Name: " + currentUpdate.get(Constants.INDEX_2));
                     System.out.println("Enter New Last Name");
                     String validateLastName = c.readLine();
-                    String isValidLastName = Validate.LastName(validateLastName);
-                    currentUpdate.set(INDEX_2, isValidLastName);
+                    String isValidLastName = Validate.lastName(validateLastName);
+                    currentUpdate.set(Constants.INDEX_2, isValidLastName);
                 }
                 case "4" -> {
-                    System.out.println("Current Phone Number: " + currentUpdate.get(INDEX_3));
+                    System.out.println("Current Phone Number: " + currentUpdate.get(Constants.INDEX_3));
                     System.out.println("Enter New Phone Number");
                     String validatePhoneNumber = c.readLine();
-                    String isValidPhoneNumber = Validate.PhoneNumber(validatePhoneNumber);
-                    currentUpdate.set(INDEX_3, isValidPhoneNumber);
+                    String isValidPhoneNumber = Validate.phoneNumber(validatePhoneNumber);
+                    currentUpdate.set(Constants.INDEX_3, isValidPhoneNumber);
                 }
                 case "5" -> {
                     System.out.println("    (Optional, to skip type '*'.)");
-                    System.out.println("Current Street Address: " + currentUpdate.get(INDEX_4));
+                    System.out.println("Current Street Address: " + currentUpdate.get(Constants.INDEX_4));
                     System.out.println("Enter New Street Address"
                             + " (e.g., Hämeenkatu)(Street Number is next.)");
                     String validateStreetAddress = c.readLine();
-                    String isValidStreetAddress = Validate.StreetAddress(validateStreetAddress);
-                    currentUpdate.set(INDEX_4, isValidStreetAddress);
+                    String isValidStreetAddress = Validate.streetAddress(validateStreetAddress);
+                    currentUpdate.set(Constants.INDEX_4, isValidStreetAddress);
                 }
                 case "6" -> {
                     System.out.println("(Optional, to skip type '*'.)");
-                    System.out.println("Current Street Number: " + currentUpdate.get(INDEX_5));
+                    System.out.println("Current Street Number: " + currentUpdate.get(Constants.INDEX_5));
                     System.out.println("Enter New Street Number (Between 1 and 999)");
                     String validateStreetNumber = c.readLine();
-                    String isValidStreetNumber = Validate.StreetNumber(validateStreetNumber);
-                    currentUpdate.set(INDEX_5, isValidStreetNumber);
+                    String isValidStreetNumber = Validate.streetNumber(validateStreetNumber);
+                    currentUpdate.set(Constants.INDEX_5, isValidStreetNumber);
                 }
                 case "7" -> {
                     System.out.println("(Optional, to skip type '*'.)");
-                    System.out.println("Current Postcode: " + currentUpdate.get(INDEX_6));
+                    System.out.println("Current Postcode: " + currentUpdate.get(Constants.INDEX_6));
                     System.out.println("Enter New Postcode (e.g., 33100)");
                     String validatePostcode = c.readLine();
-                    String isValidPostcode = Validate.Postcode(validatePostcode);
-                    currentUpdate.set(INDEX_6, isValidPostcode);
+                    String isValidPostcode = Validate.postcode(validatePostcode);
+                    currentUpdate.set(Constants.INDEX_6, isValidPostcode);
                 }
                 case "8" -> {
                     System.out.println("(Optional, to skip type '*'.)");
-                    System.out.println("Current City/Postoffice: " + currentUpdate.get(INDEX_7));
+                    System.out.println("Current City/Postoffice: " + currentUpdate.get(Constants.INDEX_7));
                     System.out.println("Enter New City/Postoffice (e.g., Tampere)");
                     String validatePostoffice = c.readLine();
-                    String isValidPostoffice = Validate.City(validatePostoffice, currentUpdate.get(INDEX_6));
-                    currentUpdate.set(INDEX_7, isValidPostoffice);
+                    String isValidPostoffice = Validate.city(validatePostoffice, currentUpdate.get(Constants.INDEX_6));
+                    currentUpdate.set(Constants.INDEX_7, isValidPostoffice);
                 }
                 case "9" -> {
                     System.out.println("(Optional, to skip type '*'.)");
-                    System.out.println("Current E-mail: " + currentUpdate.get(INDEX_8));
+                    System.out.println("Current E-mail: " + currentUpdate.get(Constants.INDEX_8));
                     System.out.println("Enter New E-mail (e.g., jaakko.virtanen@gmail.com)");
                     String validateEmail = c.readLine();
-                    String isValidEmail = Validate.Email(validateEmail);
-                    currentUpdate.set(INDEX_8, isValidEmail);
+                    String isValidEmail = Validate.email(validateEmail);
+                    currentUpdate.set(Constants.INDEX_8, isValidEmail);
                 }
                 case ".show" -> {
                     for (String index : currentUpdate) {
@@ -214,7 +177,7 @@ public class Update {
                             }
                         }
 
-                        if (lineToUpdate >= 0 && lineToUpdate < contactsList.size()) {
+                        if (lineToUpdate >= Constants.INDEX_0 && lineToUpdate < contactsList.size()) {
                             contactsList.set(lineToUpdate, newLine);
                         } else {
                             System.out.println("Line number out of range.");
@@ -240,8 +203,8 @@ public class Update {
                     System.out.println("Did you remember to save? (Changes are not saved automatically.)");
                     System.out.println("Continue to exit? Type 'Yes'/'No'.");
                         String confirmExit = c.readLine();
-                        if (confirmExit.equals("Yes")) {
-                            System.out.println("Exiting update.");
+                        if (confirmExit.equalsIgnoreCase("Yes")) {
+                            System.out.println("Exiting update and returning to main menu.");
                             return;
                         } else {
                             System.out.println("Returning to update menu.");

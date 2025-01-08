@@ -23,14 +23,14 @@ public class Delete {
 
         int toDelete = -1;
         while (true) {
-            System.out.println("(To exit type '-1' and for help type '-2'.)");
+            System.out.println("    (To exit type '-1' and for help type '-2'.)");
             System.out.println("What line do you wish to delete?");
             try {
                 toDelete = Integer.parseInt(c.readLine());
-                if (toDelete == ContactsApp.COMMAND_EXIT) {
+                if (toDelete == Constants.COMMAND_EXIT) {
                     System.out.println("Cancelling and exiting delete.");
                     return;
-                } else if (toDelete == ContactsApp.COMMAND_HELP) {
+                } else if (toDelete == Constants.COMMAND_HELP) {
                     Help.deleteHelp();
                 } else if (toDelete < 1) {
                     System.out.println("Number needs to be 1 or higher.");

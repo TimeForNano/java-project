@@ -24,52 +24,52 @@ public class Create {
 
         System.out.println("Enter Personal ID (e.g., 131052-308T)");
         String validatePersonalID = c.readLine();
-        String isValidPersonalID = Validate.PersonalID(validatePersonalID);
+        String isValidPersonalID = Validate.personalID(validatePersonalID);
         newContact.add(isValidPersonalID);
 
         System.out.println("Enter First Name (e.g., Jaakko");
         String validateFirstName = c.readLine();
-        String isValidFirstName = Validate.FirstName(validateFirstName);
+        String isValidFirstName = Validate.firstName(validateFirstName);
         newContact.add(isValidFirstName);
 
         System.out.println("Enter Last Name (e.g., Virtanen");
         String validateLastName = c.readLine();
-        String isValidLastName = Validate.LastName(validateLastName);
+        String isValidLastName = Validate.lastName(validateLastName);
         newContact.add(isValidLastName);
 
         System.out.println("Enter Phone Number (+358 and 6 to 12 digits)");
         String validatePhoneNumber = c.readLine();
-        String isValidPhoneNumber = Validate.PhoneNumber(validatePhoneNumber);
+        String isValidPhoneNumber = Validate.phoneNumber(validatePhoneNumber);
         newContact.add(isValidPhoneNumber);
 
-        System.out.println("(Optional, to skip type '*'.)");
+        System.out.println("    (Optional, to skip type '*'.)");
         System.out.println("Enter Street Address (e.g., Hämeenkatu)(Street Number is next.)");
         String validateStreetAddress = c.readLine();
-        String isValidStreetAddress = Validate.StreetAddress(validateStreetAddress);
+        String isValidStreetAddress = Validate.streetAddress(validateStreetAddress);
         newContact.add(isValidStreetAddress);
 
-        System.out.println("(Optional, to skip type '*'.)");
-        System.out.println("Enter Street Number");
+        System.out.println("    (Optional, to skip type '*'.)");
+        System.out.println("Enter Street Number (Between 1 and 999)");
         String validateStreetNumber = c.readLine();
-        String isValidStreetNumber = Validate.StreetNumber(validateStreetNumber);
+        String isValidStreetNumber = Validate.streetNumber(validateStreetNumber);
         newContact.add(isValidStreetNumber);
 
-        System.out.println("(Optional, to skip type '*'.)");
+        System.out.println("    (Optional, to skip type '*'.)");
         System.out.println("Enter Postcode (e.g., 33100)");
         String validatePostcode = c.readLine();
-        String isValidPostcode = Validate.Postcode(validatePostcode);
+        String isValidPostcode = Validate.postcode(validatePostcode);
         newContact.add(isValidPostcode);
 
-        System.out.println("(Optional, to skip type '*'.)");
+        System.out.println("    (Optional, to skip type '*'.)");
         System.out.println("Enter City/Postoffice (e.g., Tampere");
         String validatePostoffice = c.readLine();
-        String isValidPostoffice = Validate.City(validatePostoffice, isValidPostcode);
+        String isValidPostoffice = Validate.city(validatePostoffice, isValidPostcode);
         newContact.add(isValidPostoffice);
 
-        System.out.println("(Optional, to skip type '*'.)");
+        System.out.println("    (Optional, to skip type '*'.)");
         System.out.println("Enter E-mail (e.g., jaakko.virtanen@gmail.com)");
         String validateEmail = c.readLine();
-        String isValidEmail = Validate.Email(validateEmail);
+        String isValidEmail = Validate.email(validateEmail);
         newContact.add(isValidEmail);
 
         System.out.println("Adding a new contact information: " + newContact);
