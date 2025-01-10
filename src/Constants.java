@@ -1,4 +1,7 @@
 
+/**
+ * Holds constant values that are used through the application.
+ */
 public class Constants {
 
     /**

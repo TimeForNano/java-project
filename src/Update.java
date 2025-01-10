@@ -23,6 +23,7 @@ public class Update {
 
         int lineToUpdate;
         while (true) {
+            System.out.println();
             System.out.println("    (To exit type '-1' and for help type '-2'.)");
             System.out.println("What line number you want to update?");
             try {
@@ -83,6 +84,7 @@ public class Update {
 
         String newLine;
         while (true) {
+            System.out.println();
             System.out.println("    (To save type '.save'. To exit type '.exit'.)");
             System.out.println("    (To show current line type '.show'. For help type '.help'.)");
             System.out.println("Enter the field number you wanna update.");
@@ -92,6 +94,7 @@ public class Update {
 
             switch (commandInput) {
                 case "1" -> {
+                    System.out.println("    (Type .help for format details.)");
                     System.out.println("Current Personal ID: " + currentUpdate.get(Constants.INDEX_0));
                     System.out.println("Enter New Personal ID");
                     String validatePersonalID = c.readLine();
@@ -99,6 +102,7 @@ public class Update {
                     currentUpdate.set(Constants.INDEX_0, isValidPersonalID);
                 }
                 case "2" -> {
+                    System.out.println("    (Type .help for format details.)");
                     System.out.println("Current First Name: " + currentUpdate.get(Constants.INDEX_1));
                     System.out.println("Enter New First Name");
                     String validateFirstName = c.readLine();
@@ -106,6 +110,7 @@ public class Update {
                     currentUpdate.set(Constants.INDEX_1, isValidFirstName);
                 }
                 case "3" -> {
+                    System.out.println("    (Type .help for format details.)");
                     System.out.println("Current Last Name: " + currentUpdate.get(Constants.INDEX_2));
                     System.out.println("Enter New Last Name");
                     String validateLastName = c.readLine();
@@ -113,6 +118,7 @@ public class Update {
                     currentUpdate.set(Constants.INDEX_2, isValidLastName);
                 }
                 case "4" -> {
+                    System.out.println("    (Type .help for format details.)");
                     System.out.println("Current Phone Number: " + currentUpdate.get(Constants.INDEX_3));
                     System.out.println("Enter New Phone Number");
                     String validatePhoneNumber = c.readLine();
@@ -120,6 +126,7 @@ public class Update {
                     currentUpdate.set(Constants.INDEX_3, isValidPhoneNumber);
                 }
                 case "5" -> {
+                    System.out.println("    (Type .help for format details.)");
                     System.out.println("    (Optional, to skip type '*'.)");
                     System.out.println("Current Street Address: " + currentUpdate.get(Constants.INDEX_4));
                     System.out.println("Enter New Street Address"
@@ -129,7 +136,8 @@ public class Update {
                     currentUpdate.set(Constants.INDEX_4, isValidStreetAddress);
                 }
                 case "6" -> {
-                    System.out.println("(Optional, to skip type '*'.)");
+                    System.out.println("    (Type .help for format details.)");
+                    System.out.println("    (Optional, to skip type '*'.)");
                     System.out.println("Current Street Number: " + currentUpdate.get(Constants.INDEX_5));
                     System.out.println("Enter New Street Number (Between 1 and 999)");
                     String validateStreetNumber = c.readLine();
@@ -137,7 +145,8 @@ public class Update {
                     currentUpdate.set(Constants.INDEX_5, isValidStreetNumber);
                 }
                 case "7" -> {
-                    System.out.println("(Optional, to skip type '*'.)");
+                    System.out.println("    (Type .help for format details.)");
+                    System.out.println("    (Optional, to skip type '*'.)");
                     System.out.println("Current Postcode: " + currentUpdate.get(Constants.INDEX_6));
                     System.out.println("Enter New Postcode (e.g., 33100)");
                     String validatePostcode = c.readLine();
@@ -145,7 +154,8 @@ public class Update {
                     currentUpdate.set(Constants.INDEX_6, isValidPostcode);
                 }
                 case "8" -> {
-                    System.out.println("(Optional, to skip type '*'.)");
+                    System.out.println("    (Type .help for format details.)");
+                    System.out.println("    (Optional, to skip type '*'.)");
                     System.out.println("Current City/Postoffice: " + currentUpdate.get(Constants.INDEX_7));
                     System.out.println("Enter New City/Postoffice (e.g., Tampere)");
                     String validatePostoffice = c.readLine();
@@ -153,7 +163,8 @@ public class Update {
                     currentUpdate.set(Constants.INDEX_7, isValidPostoffice);
                 }
                 case "9" -> {
-                    System.out.println("(Optional, to skip type '*'.)");
+                    System.out.println("    (Type .help for format details.)");
+                    System.out.println("    (Optional, to skip type '*'.)");
                     System.out.println("Current E-mail: " + currentUpdate.get(Constants.INDEX_8));
                     System.out.println("Enter New E-mail (e.g., jaakko.virtanen@gmail.com)");
                     String validateEmail = c.readLine();

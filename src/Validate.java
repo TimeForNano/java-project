@@ -23,6 +23,13 @@ public class Validate {
         String checkPersonalID = validatePersonalID;
 
         while (true) {
+            if (checkPersonalID.equals(".help")) {
+                Help.personalIDHelp();
+                System.out.println("Enter Personal ID (e.g., 131052-308T)");
+                checkPersonalID = c.readLine();
+                continue;
+            }
+
             // Input is the right length.
             while (checkPersonalID.length() != Constants.INDEX_11) {
                 System.out.println("Personal ID length is invalid. Try again.");
@@ -58,9 +65,10 @@ public class Validate {
             }
 
             // Date is valid and not in the future.
-            LocalDate birthDate = LocalDate.parse(makeDate);
+            LocalDate birthDate;
             LocalDate dateToday = LocalDate.now();
             try {
+                birthDate = LocalDate.parse(makeDate);
                 if (birthDate.isAfter(dateToday)) {
                     System.out.println("ID birthdate can't be in the future. Try again.");
                     checkPersonalID = c.readLine();
@@ -68,11 +76,13 @@ public class Validate {
                 }
             } catch (DateTimeParseException e) {
                 System.out.println("Invalid birthdate.");
+                checkPersonalID = c.readLine();
+                continue;
             }
 
             // Allowed 002-999 range.
             Integer individualNumber = Integer.valueOf(individual);
-            if (individualNumber < Constants.INDEX_2 && individualNumber > Constants.INDEX_999) {
+            if (individualNumber < Constants.INDEX_2 || individualNumber > Constants.INDEX_999) {
                 System.out.println("Individual number isn't in the allowed 002-999 range.");
                 System.out.println("Please try again.");
                 checkPersonalID = c.readLine();
@@ -86,8 +96,8 @@ public class Validate {
                 case "0" -> {
                     if (checkMark != Constants.INDEX_0) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -95,8 +105,8 @@ public class Validate {
                 case "1" -> {
                     if (checkMark != Constants.INDEX_1) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -104,8 +114,8 @@ public class Validate {
                 case "2" -> {
                     if (checkMark != Constants.INDEX_2) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -113,8 +123,8 @@ public class Validate {
                 case "3" -> {
                     if (checkMark != Constants.INDEX_3) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -122,8 +132,8 @@ public class Validate {
                 case "4" -> {
                     if (checkMark != Constants.INDEX_4) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -131,8 +141,8 @@ public class Validate {
                 case "5" -> {
                     if (checkMark != Constants.INDEX_5) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -140,8 +150,8 @@ public class Validate {
                 case "6" -> {
                     if (checkMark != Constants.INDEX_6) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -149,8 +159,8 @@ public class Validate {
                 case "7" -> {
                     if (checkMark != Constants.INDEX_7) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -158,8 +168,8 @@ public class Validate {
                 case "8" -> {
                     if (checkMark != Constants.INDEX_8) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -167,8 +177,8 @@ public class Validate {
                 case "9" -> {
                     if (checkMark != Constants.INDEX_9) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -176,8 +186,8 @@ public class Validate {
                 case "A" -> {
                     if (checkMark != Constants.INDEX_10) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -185,8 +195,8 @@ public class Validate {
                 case "B" -> {
                     if (checkMark != Constants.INDEX_11) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -194,8 +204,8 @@ public class Validate {
                 case "C" -> {
                     if (checkMark != Constants.INDEX_12) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -203,8 +213,8 @@ public class Validate {
                 case "D" -> {
                     if (checkMark != Constants.INDEX_13) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -212,8 +222,8 @@ public class Validate {
                 case "E" -> {
                     if (checkMark != Constants.INDEX_14) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -221,8 +231,8 @@ public class Validate {
                 case "F" -> {
                     if (checkMark != Constants.INDEX_15) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -230,8 +240,8 @@ public class Validate {
                 case "H" -> {
                     if (checkMark != Constants.INDEX_16) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -239,8 +249,8 @@ public class Validate {
                 case "J" -> {
                     if (checkMark != Constants.INDEX_17) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -248,8 +258,8 @@ public class Validate {
                 case "K" -> {
                     if (checkMark != Constants.INDEX_18) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -257,8 +267,8 @@ public class Validate {
                 case "L" -> {
                     if (checkMark != Constants.INDEX_19) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -266,8 +276,8 @@ public class Validate {
                 case "M" -> {
                     if (checkMark != Constants.INDEX_20) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -275,8 +285,8 @@ public class Validate {
                 case "N" -> {
                     if (checkMark != Constants.INDEX_21) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -284,8 +294,8 @@ public class Validate {
                 case "P" -> {
                     if (checkMark != Constants.INDEX_22) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -293,8 +303,8 @@ public class Validate {
                 case "R" -> {
                     if (checkMark != Constants.INDEX_23) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -302,8 +312,8 @@ public class Validate {
                 case "S" -> {
                     if (checkMark != Constants.INDEX_24) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -311,8 +321,8 @@ public class Validate {
                 case "T" -> {
                     if (checkMark != Constants.INDEX_25) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -320,8 +330,8 @@ public class Validate {
                 case "U" -> {
                     if (checkMark != Constants.INDEX_26) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -329,8 +339,8 @@ public class Validate {
                 case "V" -> {
                     if (checkMark != Constants.INDEX_27) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -338,8 +348,8 @@ public class Validate {
                 case "W" -> {
                     if (checkMark != Constants.INDEX_28) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -347,8 +357,8 @@ public class Validate {
                 case "X" -> {
                     if (checkMark != Constants.INDEX_29) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -356,8 +366,8 @@ public class Validate {
                 case "Y" -> {
                     if (checkMark != Constants.INDEX_30) {
                         System.out.println("Check mark calculation result invalid.");
-                        System.out.println("Either your last character is wrong");
-                        System.out.println(" or some of the number values.");
+                        System.out.println("Either your last character is wrong"
+                                + " or some of the number values.");
                         checkPersonalID = c.readLine();
                         continue;
                     }
@@ -380,15 +390,20 @@ public class Validate {
         Console c = System.console();
         String checkFirstName = validateFirstName;
 
-        boolean validate;
-        do {
-            validate = checkFirstName.matches("^[A-ZÅÄÖ][a-zåäö]+$");
-            if (!validate) {
+        while (true) {
+            if (checkFirstName.equals(".help")) {
+                Help.firstNameHelp();
+                System.out.println("Enter First Name (e.g., Jaakko)");
+                checkFirstName = c.readLine();
+                continue;
+            }
+            if (!checkFirstName.matches("^[A-ZÅÄÖ][a-zåäö]+$")) {
                 System.out.println("Invalid First Name. Please try again.");
                 checkFirstName = c.readLine();
+                continue;
             }
-        } while (!validate);
-        return checkFirstName;
+            return checkFirstName;
+        }
     }
 
     /**
@@ -401,16 +416,21 @@ public class Validate {
         Console c = System.console();
         String checkLastName = validateLastName;
 
-        boolean validate;
-        do {
-            validate = checkLastName.matches("^[A-ZÅÄÖ][a-zåäö]*(?:['][A-ZÅÄÖ][a-zåäö]+)?"
-                    + "(?:[- ][A-ZÅÄÖ][a-zåäö]*(?:['][A-ZÅÄÖ][a-zåäö]+)?)?$");
-            if (!validate) {
+        while (true) {
+            if (checkLastName.equals(".help")) {
+                Help.lastNameHelp();
+                System.out.println("Enter Last Name (e.g., Virtanen)");
+                checkLastName = c.readLine();
+                continue;
+            }
+            if (!checkLastName.matches("^[A-ZÅÄÖ][a-zåäö]*(?:['][A-ZÅÄÖ][a-zåäö]+)?"
+            + "(?:[- ][A-ZÅÄÖ][a-zåäö]*(?:['][A-ZÅÄÖ][a-zåäö]+)?)?$")) {
                 System.out.println("Invalid Last Name. Please try again.");
                 checkLastName = c.readLine();
+                continue;
             }
-        } while (!validate);
-        return checkLastName;
+            return checkLastName;
+        }
     }
 
     /**
@@ -424,19 +444,25 @@ public class Validate {
         Console c = System.console();
         String checkPhoneNumber = validatePhoneNumber;
 
-        boolean validate;
-        do {
-            validate = checkPhoneNumber.matches("^\\+358(40|41|42|43|44|45|46|50)\\d{4,10}$");
+        while (true) {
+            if (checkPhoneNumber.equals(".help")) {
+                Help.phoneNumberHelp();
+                System.out.println("Enter Phone Number (+358 and 6 to 12 digits)");
+                checkPhoneNumber = c.readLine();
+                continue;
+            }
             if (checkPhoneNumber.length() < Constants.INDEX_10
                 || checkPhoneNumber.length() > Constants.INDEX_16) {
                 System.out.println("Phone Number is either too short or too long. Try again.");
                 checkPhoneNumber = c.readLine();
-            } else if (!validate) {
+                continue;
+            } else if (!checkPhoneNumber.matches("^\\+358(40|41|42|43|44|45|46|50)\\d{4,10}$")) {
                 System.out.println("Invalid Phone Number. Please try again.");
                 checkPhoneNumber = c.readLine();
+                continue;
             }
-        } while (!validate);
-        return checkPhoneNumber;
+            return checkPhoneNumber;
+        }
     }
 
     /**
@@ -450,21 +476,25 @@ public class Validate {
         Console c = System.console();
         String checkStreetAddress = validateStreetAddress;
 
-        if (checkStreetAddress.equals("*")) {
-            String nullValue = "Null";
-            checkStreetAddress = nullValue;
-            return checkStreetAddress;
-        }
-
-        boolean validate;
-        do {
-            validate = checkStreetAddress.matches("^[A-ZÅÄÖ]{1}[a-zåäö ]+$");
-            if (!validate) {
+        while (true) {
+            if (checkStreetAddress.equals(".help")) {
+                Help.streetAddressHelp();
+                System.out.println("Enter Street Address (e.g., Hämeenkatu)(Street Number is next.)");
+                checkStreetAddress = c.readLine();
+                continue;
+            }
+            if (checkStreetAddress.equals("*")) {
+                String nullValue = "Null";
+                checkStreetAddress = nullValue;
+                return checkStreetAddress;
+            }
+            if (!checkStreetAddress.matches("^[A-ZÅÄÖ]{1}[a-zåäö ]+$")) {
                 System.out.println("Invalid Street Address. Please try again.");
                 checkStreetAddress = c.readLine();
+                continue;
             }
-        } while (!validate);
-        return checkStreetAddress;
+            return checkStreetAddress;
+        }
     }
 
     /**
@@ -478,21 +508,25 @@ public class Validate {
         Console c = System.console();
         String checkStreetNumber = validateStreetNumber;
 
-        if (checkStreetNumber.equals("*")) {
-            String nullValue = "Null";
-            checkStreetNumber = nullValue;
-            return checkStreetNumber;
-        }
-
-        boolean validate;
-        do {
-            validate = checkStreetNumber.matches("^[1-9][0-9]{0,2}$");
-            if (!validate) {
+        while (true) {
+            if (checkStreetNumber.equals(".help")) {
+                Help.streetNumberHelp();
+                System.out.println("Enter Street Number (Between 1 and 999)");
+                checkStreetNumber = c.readLine();
+                continue;
+            }
+            if (checkStreetNumber.equals("*")) {
+                String nullValue = "Null";
+                checkStreetNumber = nullValue;
+                return checkStreetNumber;
+            }
+            if (!checkStreetNumber.matches("^[1-9][0-9]{0,2}$")) {
                 System.out.println("Invalid Street Number. Please try again.");
                 checkStreetNumber = c.readLine();
+                continue;
             }
-        } while (!validate);
-        return checkStreetNumber;
+            return checkStreetNumber;
+        }
     }
 
     /**
@@ -504,42 +538,48 @@ public class Validate {
         Console c = System.console();
         String checkPostcode = validatePostcode;
 
-        if (checkPostcode.equals("*")) {
-            String nullValue = "Null";
-            checkPostcode = nullValue;
-            return checkPostcode;
-        }
-
-        boolean validate;
-        do {
-            validate = checkPostcode.matches("^[0-9]{5}$");
-            if (!validate) {
+        while (true) {
+            if (checkPostcode.equals(".help")) {
+                Help.postcodeHelp();
+                System.out.println("Enter Postcode (e.g., 33100)");
+                checkPostcode = c.readLine();
+                continue;
+            }
+            if (checkPostcode.equals("*")) {
+                String nullValue = "Null";
+                checkPostcode = nullValue;
+                return checkPostcode;
+            }
+            
+            if (!checkPostcode.matches("^[0-9]{5}$")) {
                 System.out.println("Invalid Postcode. Please try again.");
                 checkPostcode = c.readLine();
+                continue;
             }
+            boolean validPostcode = false;
             try {
                 BufferedReader readerCSV;
                 readerCSV = new BufferedReader(new FileReader("postcodes.csv"));
-                boolean validPostcode = false;
                 String line;
                 while ((line = readerCSV.readLine()) != null) {
                     String[] split = line.split(",");
-                    if (split[0].equals(checkPostcode)) {
-                        System.out.println("Postcode: " + split[0] + " matches to " + split[1]);
+                    if (split[Constants.INDEX_0].equals(checkPostcode)) {
+                        System.out.println("Postcode: " + split[Constants.INDEX_0] + " matches to " + split[Constants.INDEX_1]);
                         validPostcode = true;
                         break;
                     }
-                }
-                if (!validPostcode) {
-                    System.out.println("Postcode not found. Please try again.");
-                    checkPostcode = c.readLine();
                 }
                 readerCSV.close();
             } catch (IOException e) {
                 System.out.println("An error occurred: " + e.getMessage());
             }
-        } while (!validate);
-        return checkPostcode;
+            if (!validPostcode) {
+                System.out.println("Postcode not found. Please try again.");
+                checkPostcode = c.readLine();
+                continue;
+            }
+            return checkPostcode;
+        }
     }
 
     /**
@@ -553,42 +593,48 @@ public class Validate {
         String checkCity = validateCity;
         String checkPostcode = validPostcode;
 
-        if (checkCity.equals("*")) {
-            String nullValue = "Null";
-            checkCity = nullValue;
-            return checkCity;
-        }
-
-        boolean validate;
-        do {
-            validate = checkCity.matches("^[A-ZÅÄÖ]{1}[a-zåäö]+$");
-            if (!validate) {
-                System.out.println("Invalid City/Postoffice. Please try again.");
+        
+        while (true) {
+            if (checkCity.equals(".help")) {
+                Help.cityHelp();
+                System.out.println("Enter City/Postoffice (e.g., Tampere)");
                 checkCity = c.readLine();
+                continue;
             }
+            if (checkCity.equals("*")) {
+                String nullValue = "Null";
+                checkCity = nullValue;
+                return checkCity;
+            }
+            if (!checkCity.matches("^[A-ZÅÄÖ]{1}[a-zåäö]+$")) {
+                System.out.println("Invalid City/Postoffice format. Please try again.");
+                checkCity = c.readLine();
+                continue;
+            }
+            boolean validCity = false;
             try {
                 BufferedReader readerCSV;
                 readerCSV = new BufferedReader(new FileReader("postcodes.csv"));
-                boolean validCity = false;
                 String line;
                 while ((line = readerCSV.readLine()) != null) {
                     String[] split = line.split(",");
-                    if (split[1].equals(checkCity) && split[0].equals(checkPostcode)) {
-                        System.out.println("City: " + split[1] + " matches to " + split[0]);
+                    if (split[Constants.INDEX_1].equals(checkCity) && split[Constants.INDEX_0].equals(checkPostcode)) {
+                        System.out.println("City: " + split[Constants.INDEX_1] + " matches to " + split[Constants.INDEX_0]);
                         validCity = true;
                         break;
                     }
-                }
-                if (!validCity) {
-                    System.out.println("City/Postoffice not found. Please try again.");
-                    checkCity = c.readLine();
                 }
                 readerCSV.close();
             } catch (IOException e) {
                 System.out.println("An error occurred: " + e.getMessage());
             }
-        } while (!validate);
-        return checkCity;
+            if (!validCity) {
+                System.out.println("City/Postoffice not found or doesn't match the postcode. Please try again.");
+                checkCity = c.readLine();
+                continue;
+            }
+            return checkCity;
+        }
     }
 
     /**
@@ -602,25 +648,25 @@ public class Validate {
         Console c = System.console();
         String checkEmail = validateEmail;
 
-        if (checkEmail.equals("*")) {
-            String nullValue = "Null";
-            checkEmail = nullValue;
-            return checkEmail;
-        }
-
-        boolean validate;
-        do {
-            validate = checkEmail.matches("^[A-Za-z0-9]+(?:[!#$%&'*+-/=?^_`{|}~.][a-z0-9]+)*"
-                    + "@[a-z0-9]+(?:[-][a-z0-9]+)*\\.[a-z]{2,}$");
-            if (!validate) {
+        while (true) {
+            if (checkEmail.equals(".help")) {
+                Help.emailHelp();
+                System.out.println("Enter E-mail (e.g., jaakko.virtanen@gmail.com)");
+                checkEmail = c.readLine();
+                continue;
+            }
+            if (checkEmail.equals("*")) {
+                String nullValue = "Null";
+                checkEmail = nullValue;
+                return checkEmail;
+            }
+            if (!checkEmail.matches("^[A-Za-z0-9]+(?:[!#$%&'*+-/=?^_`{|}~.][A-Za-z0-9]+)*"
+            + "@[a-z0-9]+(?:[-][a-z0-9]+)*\\.[a-z]{2,}$")) {
                 System.out.println("Invalid E-mail. Please try again or type '.help' for rules.");
                 checkEmail = c.readLine();
-                if (checkEmail.equals(".help")) {
-                    Help.emailHelp();
-                    checkEmail = c.readLine();
-                }
+                continue;
             }
-        } while (!validate);
-        return checkEmail;
+            return checkEmail;
+        }
     }
 }

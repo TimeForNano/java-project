@@ -23,6 +23,7 @@ public class Delete {
 
         int toDelete = -1;
         while (true) {
+            System.out.println();
             System.out.println("    (To exit type '-1' and for help type '-2'.)");
             System.out.println("What line do you wish to delete?");
             try {
@@ -32,29 +33,34 @@ public class Delete {
                     return;
                 } else if (toDelete == Constants.COMMAND_HELP) {
                     Help.deleteHelp();
+                    continue;
                 } else if (toDelete < 1) {
                     System.out.println("Number needs to be 1 or higher.");
-                } else {
-                    break;
+                    continue;
                 }
             } catch (NumberFormatException e) {
                 System.out.println("An error occurred: " + e.getMessage());
+                continue;
             }
 
+            boolean linefound = false;
             try {
                 try (BufferedReader readerLine = new BufferedReader(new FileReader(""
                         + "Contacts.csv"))) {
                     String line;
-                    int currentLine = 0;
+                    int currentLine = Constants.INDEX_0;
                     while ((line = readerLine.readLine()) != null) {
                         if (currentLine == toDelete) {
                             System.out.println("Current line: " + line);
-                            break;
+                            linefound = true;
+                            System.out.println();
                         }
                         currentLine++;
                     }
-                    if (currentLine <= toDelete) {
+                    if (!linefound) {
                         System.out.println("Line number out of range.");
+                    } else {
+                        break;
                     }
                 }
             } catch (IOException e) {
@@ -65,11 +71,10 @@ public class Delete {
         System.out.println("Are you sure you wanna delete this line? Type 'Yes'/'No'.");
         System.out.println("Warning! There is no way to restore deleted data.");
         String confirmDelete = c.readLine();
-        if (confirmDelete.equals("Yes")) {
+        if (confirmDelete.equalsIgnoreCase("Yes")) {
             System.out.println("Proceeding to delete...");
         } else {
-            System.out.println("Cancelling and exiting delete.");
-            return;
+            delete();
         }
 
         try {

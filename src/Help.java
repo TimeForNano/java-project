@@ -54,56 +54,164 @@ public class Help {
         System.out.println("    - In .update and .delete you can exit by typing '-1'.");
         System.out.println();
 
-        String command = c.readLine();
-        if (command.equals(".exit")) {
-            System.out.println("Returning to main menu.");
-        } else if (command.equals(".guide")) {
-            personalIDHelp();
-            firstNameHelp();
-            lastNameHelp();
-            phoneNumberHelp();
-            streetAddressHelp();
-            streetNumberHelp();
-            postcodeHelp();
-            cityHelp();
-            emailHelp();
-            System.out.println("Returning to main menu.");
+        while (true) {
+            String command = c.readLine();
+            switch (command) {
+                case ".exit" -> {
+                    System.out.println("Returning to main menu.");
+                    return;
+                }
+                case ".guide" -> {
+                    personalIDHelp();
+                    firstNameHelp();
+                    lastNameHelp();
+                    phoneNumberHelp();
+                    streetAddressHelp();
+                    streetNumberHelp();
+                    postcodeHelp();
+                    cityHelp();
+                    emailHelp();
+                    System.out.println("Returning to main menu.");
+                    return;
+                }
+                default -> {
+                    System.out.println("Invalid command.");
+                    continue;
+                }
+            }
         }
     }
 
+    /**
+     * Help texts for the Personal ID validation format.
+     */
     public static void personalIDHelp() {
-        System.out.println("");
+        System.out.println();
+        System.out.println("    | Personal ID help | ");
+        System.out.println("    - Length needs to be 11 characters.");
+        System.out.println("    - Birthdate needs to be valid and not in the future.");
+        System.out.println("        - (e.g. February 31th doesn't exists. It can only have 29 or 28 days.)");
+        System.out.println("    - Century mark (after birthdate) matches the format.");
+        System.out.println("        - (1800s: '+')");
+        System.out.println("        - (1900s: '-', 'Y', 'X', 'W', 'V', 'U')");
+        System.out.println("        - (2000s: 'A', 'B', 'C', 'D', 'E', 'F')");
+        System.out.println("    - Individual number is between 002 and 999.");
+        System.out.println("    - ID check mark (last character) is correct.");
+        System.out.println("        - (Calculated from the numbers and that result is converted into the check mark.)");
+        System.out.println();
     }
 
+    /**
+     * Help texts for the First Name validation format.
+     */
     public static void firstNameHelp() {
-        System.out.println("");
+        System.out.println();
+        System.out.println("    | First Name help |");
+        System.out.println("    - First character needs to be uppercase and the rest lowercase.");
+        System.out.println();
     }
 
+    /**
+     * Help texts for the Last Name validation format.
+     */
     public static void lastNameHelp() {
-        System.out.println("");
+        System.out.println();
+        System.out.println("    | Last Name help |");
+        System.out.println("    - First character needs to be uppercase and the rest lowercase.");
+        System.out.println("    - Its possible to have double last names. In the style of:");
+        System.out.println("        - With hyphen 'Virtanen-Heikkilä' or space 'Virtanen Heikkilä'");
+        System.out.println("    - O'Connor style of last name is accept as well. Needs uppercase on both sides of: ' .");
+        System.out.println();
     }
 
+    /**
+     * Help texts for the Phonenumber validation format.
+     */
     public static void phoneNumberHelp() {
-        System.out.println("");
+        System.out.println();
+        System.out.println("    | Phonenumber help |");
+        System.out.println("    - Phonenumber needs to be started with '+358'.");
+        System.out.println("    - Followed by one of:");
+        System.out.println("        - '40', '41', '42', '43', '44', '45', '46' or '50'.");
+        System.out.println("    - Followed by 4 to 10 more digits.");
+        System.out.println("    - These are all private numbers. Corporate numbers are not accepted.");
+        System.out.println();
     }
 
+    /**
+     * Help texts for the Street Address validation format.
+     */
     public static void streetAddressHelp() {
-        System.out.println("");
+        System.out.println();
+        System.out.println("    | Street Address help |");
+        System.out.println("    - Optional to fill (Skipping in this part works by typing '*').");
+        System.out.println("    - First character needs to be uppercase and the rest lowercase.");
+        System.out.println("    - It can have spaces (e.g. 'Mossin puistotie').");
+        System.out.println("    - There is no database to compare to.");
+        System.out.println("    - Street Number is given in the next step in '.create'.");
+        System.out.println();
     }
 
+    /**
+     * Help texts for the Street Number validation format.
+     */
     public static void streetNumberHelp() {
-        System.out.println("");
+        System.out.println();
+        System.out.println("    | Street Number help |");
+        System.out.println("    - Optional to fill (Skipping in this part works by typing '*').");
+        System.out.println("    - Number between 1 and 999.");
+        System.out.println();
     }
 
+    /**
+     * Help texts for the Postcode validation format.
+     */
     public static void postcodeHelp() {
-        System.out.println("");
+        System.out.println();
+        System.out.println("    | Postcode help |");
+        System.out.println("    - Optional to fill (Skipping in this part works by typing '*').");
+        System.out.println("    - Postcode needs to be 5 digits long.");
+        System.out.println("    - Application needs to find a match for it from a .csv file.");
+        System.out.println();
     }
 
+    /**
+     * Help texts for the City/Postoffice validation format.
+     */
     public static void cityHelp() {
-        System.out.println("");
+        System.out.println();
+        System.out.println("    | City/Postoffice help |");
+        System.out.println("    - Optional to fill (Skipping in this part works by typing '*').");
+        System.out.println("    - First character needs to be uppercase and the rest lowercase.");
+        System.out.println("    - You will be printed the city/postoffice matching the postcode.");
+        System.out.println("    - Application needs to find a match between the city and the postcode from a .csv file.");
+        System.out.println();
     }
+
+    /**
+     * Help texts for the E-mail validation format.
+     */
     public static void emailHelp() {
-        System.out.println("");
+        System.out.println();
+        System.out.println("    | E-mail help |");
+        System.out.println("    - Optional to fill (Skipping in this part works by typing '*').");
+        System.out.println("    - E-mail consists of Local Part (Username), @ symbol and Domain name.");
+        System.out.println("    - Local Part Rules");
+        System.out.println("        - Letters (A-Z, a-z)");
+        System.out.println("        - Numbers (0-9)");
+        System.out.println("        - Special characters (!#$%&'*+-/=?^_`{|}~.)");
+        System.out.println("            - Can't have two in a row or as the first character.");
+        System.out.println("            - Needs to be followed by at least one letter or number before @ symbol.");
+        System.out.println("    - @ symbol in between");
+        System.out.println("    - Domain name Rules");
+        System.out.println("        - Letters (a-z)");
+        System.out.println("        - Numbers (0-9)");
+        System.out.println("        - Special character hyphen - is allowed.");
+        System.out.println("            - Needs to be followed by at least one letter or number before '.' dot.");
+        System.out.println("        - . (dot) in between");
+        System.out.println("        - Letters (a-z)");
+        System.out.println("            - Needs to have at least 2 letters after the dot.");
+        System.out.println();
     }
 
     /**

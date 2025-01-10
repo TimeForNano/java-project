@@ -13,6 +13,7 @@ public class Read {
      * Reads all lines in the text file and prints them out.
      */
     public static void readAll() {
+        System.out.println();
         try {
             try (BufferedReader readerAll = new BufferedReader(new FileReader("Contacts.csv"))) {
                 String line;
@@ -40,13 +41,15 @@ public class Read {
     public static void readLine() {
         Console c = System.console();
 
-        int rowNumber = -1;
+        int rowNumber;
         while (true) {
+            System.out.println();
             System.out.println("    (To exit type '-1'.)");
-            System.out.println("To read enter row number:");
+            System.out.println("To read enter a row number:");
             try {
                 rowNumber = Integer.parseInt(c.readLine());
                 if (rowNumber == Constants.COMMAND_EXIT) {
+                    System.out.println("Returning to main menu.");
                     return;
                 } else if (rowNumber < Constants.INDEX_0) {
                     System.out.println("Number needs to be 0 or higher.");
@@ -54,6 +57,7 @@ public class Read {
                 }
             } catch (NumberFormatException e) {
                 System.out.println("An error occurred: " + e.getMessage());
+                continue;
             }
 
             boolean lineFound = false;
