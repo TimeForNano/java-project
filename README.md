@@ -9,7 +9,7 @@ Task was to create a simple contacts application where user can
 * update and
 * delete Finnish contacts from a text file.
 
-This application has a command line user interface. To save the data it uses `.csv` file (Comma-separated values)
+This application has a command line user interface. To save the data it uses `.csv` file (Comma-separated values).
 
 Data types and examples of what can be saved.
 
@@ -28,7 +28,7 @@ What the application is missing is a search function and/or a line number index.
 ## Usage
 The application can be compiled and started with `cd src/ && javac *.java && java ContactsApp`
 
-You should be greeted with the text `Welcome to the Contacts Application!` after which the application initializates the `.csv` text file. Then you should see
+You should be greeted with the text `Welcome to the Contacts Application!` after which the application initializates the `.csv` text file. Then you should see:
 ```
 ## Main menu ##
 Command options: .help .readAll .readLine .create .update .delete .exit
@@ -37,7 +37,7 @@ From this point using the application should be quite straight forward. You can 
 
 ## Documentation
 Screencast video link: [screencast.Mika.mp4](https://tuni-my.sharepoint.com/:v:/g/personal/mika_n_tuominen_tuni_fi/EcmTYYxA1v9LqY8R10P2OxABIX8gSGIXG-i8MGyrtKWTfw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=K0AL0k)
-Html documentation generated from javadoc comments.
+and Html documentation generated from javadoc comments.
 
 ## Postcode data copyrights
 The postcode data file [postcodes.csv](https://github.com/TimeForNano/java-project/blob/main/src/postcodes.csv), used in this project. Was generated on March 23, 2021, by Teemu Havulinna for his own project, https://github.com/ohjelmointi2/postinumerot.
