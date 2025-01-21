@@ -36,7 +36,7 @@ Command options: .help .readAll .readLine .create .update .delete .exit
 From this point using the application should be quite straight forward. You can start by reading more details with `.help` and even more so inside of that with `.guide`.
 
 ## Documentation
-Screencast video link: [screencast.Mika.mp4](https://tuni-my.sharepoint.com/:v:/g/personal/mika_n_tuominen_tuni_fi/EcmTYYxA1v9LqY8R10P2OxABIX8gSGIXG-i8MGyrtKWTfw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=K0AL0k)
+Screencast video link: [screencast (YouTube)]([https://youtu.be/hzrnlTcgvg4])
 and Html documentation generated from javadoc comments.
 
 ## Postcode data copyrights
