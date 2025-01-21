@@ -36,7 +36,7 @@ Command options: .help .readAll .readLine .create .update .delete .exit
 From this point using the application should be quite straight forward. You can start by reading more details with `.help` and even more so inside of that with `.guide`.
 
 ## Documentation
-Screencast video link: [screencast (YouTube)]([https://youtu.be/hzrnlTcgvg4])
+Screencast video link: [screencast (YouTube)](https://youtu.be/hzrnlTcgvg4)
 and Html documentation generated from javadoc comments.
 
 ## Postcode data copyrights
